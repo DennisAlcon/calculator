@@ -1,11 +1,11 @@
 const calculadora = document.getElementById('calculadora');
 const resultado = document.getElementById('resultado');
-
+const historial = document.getElementById('historial');
 let numero1 = '';
 let numero2 = '';
 let operacion = '';
 let point = false;
-
+let alma = [];
 calculadora.addEventListener('click', function(e) {
     if (e.target.tagName === 'BUTTON') {
         const valor = e.target.innerText;
@@ -37,6 +37,8 @@ calculadora.addEventListener('click', function(e) {
                     case '/': res = n2 === 0 ? 'Error' : n1 / n2; break;
                 }
                 resultado.value = res;
+                alma.push(n1+" "+operacion+" "+n2+" = "+res);
+                console.log(alma);
                 numero1 = res;
                 numero2 = '';
                 operacion = '';
@@ -49,6 +51,15 @@ calculadora.addEventListener('click', function(e) {
             operacion = '';
             point = false;
             resultado.value = '';
+        }
+        else if (valor === 'SHOW HISTORY'){
+            
+            historial.innerHTML = alma.join('<br>');
+        }
+        else if (valor === 'CLEAN HISTORY'){
+            alma = [];
+
+            historial.innerHTML = '';
         }
     }
 });
