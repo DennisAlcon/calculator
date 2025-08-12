@@ -60,13 +60,7 @@ body{
 #calculadora button.k{
 	background-color: rgba(230, 29, 26, 0.835);
 }
-#main-container {
-	display: flex;
-	flex-direction: row;
-	gap: 40px;
-	align-items: flex-start;
-	justify-content: center;
-}
+
 
 #historial {
 	background: rgba(255,255,255,0.7);
